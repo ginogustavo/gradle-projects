@@ -6,3 +6,7 @@ build
 
 ### Java ###
 *.class
+
+.idea
+
+
