@@ -1,5 +1,7 @@
 ## Repositories
 
+---
+
 -Organizations can can set custom repositories:
 (All the dependencies will be downloaded from that repo.)
 
@@ -26,7 +28,9 @@ repositories {
 }
 ```
 
-## Configurations
+## Configurations (Dependencies)
+
+---
 
 _src/main/java_ and _src/test/java_ are refered as **sourceSets** in gradle.
 
@@ -47,3 +51,17 @@ dependencies {
     testImplementation 'junit:junit:4.13. 2'
 }
 ```
+
+In the **dependencies** section you'll find the gradle configurations (which comes with **java** plugin):
+
+- **implementation**: the dependencies here should be using during the compiling phase of src/main. And also when running the code inside. Also available in .war file.
+
+- **testImplementation**: should be available when compiling and running tests.
+
+other configurations:
+
+- **compileOnly**: e.g. Dozer, Lombok, JMapper
+- **runtimeOnly**: e.g logging-api, loggin-impl
+- **testCompileOnly**: e.g. Junit, Jasmine, Mockito.
+- **testRuntimeOnly**: e.g. Jupiter, Jasmine Runtime
+- api(former compile)
