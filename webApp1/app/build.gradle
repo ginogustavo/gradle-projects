@@ -1,6 +1,7 @@
 plugins {
     id 'war'
     id 'org.gretty' version '4.0.0'
+    id 'jacoco'
 }
 
 repositories {
@@ -8,8 +9,17 @@ repositories {
 }
 
 dependencies {
-    compileOnly 'javax.servlet:javax.servlet-api:3.1.0'
-//    testImplementation 'junit:junit:4.13.2'
+    implementation 'javax.servlet:javax.servlet-api:3.1.0'
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.mockito:mockito-core:3.5.9'
 }
 
 gretty.httpPort = 9090
+
+test.finalizedBy jacocoTestReport
+//each time we run test-> jacoco report will be generated
+
+//What if we run jacocoTestReport wihtout running the tests, then no report. So we need to make sure by..
+jacocoTestReport.dependsOn test
+//it tells gradle everytime we directly run jacoco test report , also run the test.(#lines covered)
+
