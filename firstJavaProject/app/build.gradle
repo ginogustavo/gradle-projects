@@ -16,6 +16,35 @@ task firstTask{
 }
 println 'end' //also in the configuration phase
 
+task deployToStage(){
+    //println('Deployed to stage') // executed during configuration phase
+    doLast(){
+        // during build phase
+        println 'deployed to stage'
+    }
+}
+
+task deployToProd(){
+    //println('Deployed to stage') // executed during configuration phase
+    doLast(){
+        // during build phase
+        println 'deployed to production'
+    }
+}
+
+
+task cleanupFiles{
+    doLast(){
+        println 'cleaned up files'
+    }
+}
+
+deployToProd.dependsOn deployToStage
+deployToProd.finalizedBy cleanupFiles  //to run after a particular task
+
+
+//to execute default tasks
+defaultTasks "deployToStage"
 
 //plugins {
 //    // Apply the application plugin to add support for building a CLI application in Java.

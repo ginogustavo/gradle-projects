@@ -11,29 +11,12 @@ plugins {
     id 'application'
 }
 
-project.description='First Application with Gradle'
-project.version = 1.0
-project.ext.myCustomProperty = "any Value"
-
 repositories {
-    println project.name
-    println project.description
-    println project.version
-    println project.path
-    println project.projectDir
-    println project.myCustomProperty
-    println project.property('myCustomProperty')
-
-
-    println 'repositories'
-
     // Use Maven Central for resolving dependencies.
     mavenCentral()
-
 }
 
 dependencies {
-    println 'dependencies'
     // Use JUnit test framework.
     testImplementation 'junit:junit:4.13.2'
 
@@ -42,7 +25,6 @@ dependencies {
 }
 
 application {
-    println 'application'
     // Define the main class for the application.
-    mainClass = 'com.mycompany.App'
+    mainClass = 'product.app.App'
 }
