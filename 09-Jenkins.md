@@ -24,4 +24,9 @@
 - For now git no needed, Go to Build tab: **Add a build step**
 - Select **Invoke Gradle script**, and select invoke Gradle, by using the one you created in configuration.
 - Click on Advance, and set: Root Build Script for multi module, or Build file for specific one.
-  -Set the path of your local app, e.g. /Users/gino/documents/project/gradleweb1
+  -Set the path of your local app, e.g. /Users/gino/documents/project/gradleweb1/build.gradle
+- Specify the Gradle wrapper(task): clean build, and saved
+- Menu / Build Now, you can check in console.
+
+Notes:
+-Build Triggers : to scheduel when to run the job
