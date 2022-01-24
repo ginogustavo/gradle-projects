@@ -1,3 +1,5 @@
+import com.inexo.gradle.MyAWSPlugin;
+
 plugins {
     id 'war'
     id 'org.gretty' version '4.0.0'
@@ -17,6 +19,9 @@ dependencies {
 
 gretty.httpPort = 9090
 
+
+apply plugin: MyAWSPlugin
+
 test.finalizedBy jacocoTestReport
 //each time we run test-> jacoco report will be generated
 
@@ -24,3 +29,4 @@ test.finalizedBy jacocoTestReport
 jacocoTestReport.dependsOn test
 //it tells gradle everytime we directly run jacoco test report , also run the test.(#lines covered)
 
+deployToEC2.dependsOn copyToS3
